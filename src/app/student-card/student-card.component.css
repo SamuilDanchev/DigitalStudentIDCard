@@ -1,0 +1,25 @@
+.card-wrapper {
+  width: 50%;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.mat-card-header {
+  justify-content: center;
+}
+
+.mat-card-image {
+  margin: 10px;
+  max-width: 25%;
+}
+
+.mat-card-content {
+  display: flex;
+}
+
+.student-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
