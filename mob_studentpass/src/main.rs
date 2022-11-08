@@ -1,9 +1,12 @@
 use lazy_static::lazy_static;
 use std::sync::Arc;
+use ldap3::{LdapConn, LdapConnAsync, Scope, SearchEntry};
+use ldap3::result::Result;
 
 mod db;
 mod error;
 mod routes;
+mod user;
 
 #[tokio::main]
 async fn main() {

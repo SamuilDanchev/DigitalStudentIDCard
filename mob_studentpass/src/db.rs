@@ -1,5 +1,6 @@
 use std::convert::Infallible;
 use std::sync::Arc;
+use ldap3::{Ldap, LdapConnAsync};
 
 use sqlx::{
     postgres::{PgConnectOptions, PgPoolOptions},
@@ -18,7 +19,7 @@ impl Db {
             .port(5432)
             .username("postgres")
             .password("admin")
-            .database("studentpass");
+            .database("nbs");
 
         let pool = PgPoolOptions::new().connect_with(options).await.unwrap();
 
