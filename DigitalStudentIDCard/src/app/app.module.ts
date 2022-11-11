@@ -14,6 +14,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatDividerModule} from '@angular/material/divider';
 
 import { StudentCardComponent } from './student-card/student-card.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, StudentCardComponent],
@@ -26,7 +27,8 @@ import { StudentCardComponent } from './student-card/student-card.component';
     MatButtonModule,
     ReactiveFormsModule,
     MatProgressBarModule,
-    MatDividerModule
+    MatDividerModule,
+    QRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
