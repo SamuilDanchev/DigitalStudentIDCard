@@ -14,7 +14,7 @@ export class VerificationComponent implements OnInit {
 
   constructor(private verifyService: VerifyService) {
     this.verifyService.verify().subscribe(res => {
-      console.log()
+      console.log(res)
     })
   }
 
