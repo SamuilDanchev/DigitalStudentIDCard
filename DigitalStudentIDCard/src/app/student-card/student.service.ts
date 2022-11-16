@@ -24,8 +24,9 @@ export class StudentService {
 
   login(user: User) {
     this.http.post<LoginRes>(GlobVar.LOGIN_URL, user).subscribe(res => {
-      this.userData = res.students;
+      this.userData = res.student;
       this.token = res.token;
+
     });
   }
 
