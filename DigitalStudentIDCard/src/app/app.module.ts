@@ -1,6 +1,7 @@
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,9 +16,10 @@ import {MatDividerModule} from '@angular/material/divider';
 
 import { StudentCardComponent } from './student-card/student-card.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { VerificationComponent } from './verification/verification.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, StudentCardComponent],
+  declarations: [AppComponent, LoginComponent, StudentCardComponent, VerificationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,7 +30,8 @@ import { QRCodeModule } from 'angularx-qrcode';
     ReactiveFormsModule,
     MatProgressBarModule,
     MatDividerModule,
-    QRCodeModule
+    QRCodeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

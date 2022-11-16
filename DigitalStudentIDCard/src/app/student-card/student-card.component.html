@@ -14,33 +14,33 @@
           <div class="student-info">
             <mat-form-field appearance="legacy">
               <mat-label>Vorname, Nachname</mat-label>
-              <input matInput value="John Doe" readonly />
+              <input matInput [value]="model.firstname +',' +model.lastname " readonly />
             </mat-form-field>
 
             <mat-form-field appearance="legacy">
               <mat-label>Geburtsdatum</mat-label>
-              <input matInput value="01.01.2001" readonly />
+              <input matInput [value]="model.birth_date | date" readonly />
             </mat-form-field>
 
             <mat-form-field appearance="legacy">
               <mat-label>Klasse</mat-label>
-              <input matInput value="WIT3C" readonly />
+              <input matInput [value]="model.school_class" readonly />
             </mat-form-field>
 
             <mat-form-field appearance="legacy">
               <mat-label>Schuljahr / gedruckt in:</mat-label>
-              <input matInput value="2022" readonly />
+              <input matInput [value]="model.printed_in|date" readonly />
             </mat-form-field>
           </div>
         </mat-card-content>
         <mat-card-footer>
-          <mat-card-subtitle>Gültig in Verbindung mit einem Personalausweis. Klick mich an!</mat-card-subtitle>
+          <mat-card-subtitle>Gültig in Verbindung mit einem Personalausweis bis zum {{model.valid_to | date}} . Klick mich an!</mat-card-subtitle>
         </mat-card-footer>
       </mat-card>
 		</div>
 		<div class="tp-box__side tp-box__back">
       <mat-card>
-        <qrcode [qrdata]="'https://www.connedata.de/'" [errorCorrectionLevel]="'M'"></qrcode>
+        <qrcode [qrdata]="qrData" [errorCorrectionLevel]="'M'"></qrcode>
       </mat-card>
 		</div>
 	</div>
