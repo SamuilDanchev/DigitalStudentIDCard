@@ -16,6 +16,6 @@ export class VerifyService {
         this.token = params['token'];
       })
 
-    return this.http.post(GlobVar.VERIFY_URL + '/authorization?token=' + this.token , {})
+    return this.http.get(GlobVar.VERIFY_URL + '/authorization?token=' + this.token , {})
   }
 }
