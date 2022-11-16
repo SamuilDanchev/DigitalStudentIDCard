@@ -866,10 +866,8 @@ dependencies = [
  "chrono",
  "dotenv",
  "jsonwebtoken",
- "md5",
  "serde",
  "serde_json",
- "sqlx",
  "thiserror",
 ]
 

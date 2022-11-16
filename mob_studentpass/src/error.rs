@@ -18,6 +18,14 @@ pub enum ApiError {
     UnknownUserError,
     #[error("wrong query parameter")]
     QueryParameterError,
+    #[error("expired signature")]
+    ExpiredSignature,
+    #[error("unknown error")]
+    UnknownError,
+    #[error("invalid signature")]
+    InvalidSignature,
+    #[error("invalid token")]
+    InvalidToken,
 }
 
 #[derive(Serialize)]
@@ -63,6 +71,18 @@ pub async fn handle_rejection(err: Rejection) -> std::result::Result<impl Reply,
             ApiError::QueryParameterError => {
                 code = StatusCode::NOT_FOUND;
                 message = "wrong query parameter used"
+            }
+            ApiError::ExpiredSignature => {
+                code = StatusCode::UNAUTHORIZED;
+                message = "token has expired"
+            }
+            ApiError::InvalidSignature => {
+                code = StatusCode::UNAUTHORIZED;
+                message = "invalid signature"
+            }
+            ApiError::InvalidToken => {
+                code = StatusCode::UNAUTHORIZED;
+                message = "invalid token"
             }
             _ => {
             eprintln!("unhandled application error: {:?}", err);

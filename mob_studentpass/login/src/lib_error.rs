@@ -1,6 +1,4 @@
-use jsonwebtoken::errors::Error;
 use thiserror::Error;
-use std::convert::Infallible;
 
 #[derive(Error, Debug)]
 pub enum LoginError {
@@ -16,16 +14,6 @@ pub enum LoginError {
     TimeConvertError,
     #[error("this error is unknown")]
     UnknownError,
-}
-
-
-impl From<sqlx::Error> for LoginError {
-    fn from(e: sqlx::Error) -> Self {
-        match e {
-            sqlx::Error::RowNotFound => LoginError::InvalidCredentials,
-            _ => LoginError::UnknownError,
-        }
-    }
 }
 
 impl From<jsonwebtoken::errors::Error> for LoginError {

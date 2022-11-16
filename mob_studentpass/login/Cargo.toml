@@ -5,10 +5,8 @@ edition = "2021"
 
 [dependencies]
 dotenv = "0.15.0"
-sqlx = { version = "0.5", features = [ "runtime-tokio-rustls","postgres" ] }
 chrono = { version = "0.4.19", features = ["serde"] }
 serde = { version = "1.0.124", features = ["derive"] }
 serde_json = "1.0.64"
-md5 = "0.7.0"
 jsonwebtoken = "7.2.0"
 thiserror = "1.0.30"
