@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   login() {
     const user: User =
       {
-        username: this.form.get('username')?.value,
+        email: this.form.get('username')?.value,
         password: this.form.get('password')?.value,
       }
 
