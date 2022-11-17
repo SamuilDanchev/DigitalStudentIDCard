@@ -40,7 +40,7 @@ pub fn login() -> impl Filter<Extract=impl warp::Reply, Error=warp::Rejection> +
 pub async fn handle_login(_login_user: LoginUser) -> Result<impl warp::Reply, warp::Rejection> {
     let (conn, mut ldap) = LdapConnAsync::new("ldap://localhost:389").await.unwrap();
     ldap3::drive!(conn);
-    let result = ldap.simple_bind("cn=admin,dc=dannybbs,dc=com", "admin_pass").await.unwrap().success();
+    let result = ldap.simple_bind("cn=admin,dc=dannybbs,dc=com", "admin").await.unwrap().success();
     match result {
         Ok(_) => {
             let filter = format!("(uidNumber=1000)");
@@ -48,7 +48,7 @@ pub async fn handle_login(_login_user: LoginUser) -> Result<impl warp::Reply, wa
                 "ou=School,dc=dannybbs,dc=com",
                 Scope::Subtree,
                 &filter,
-                vec!["uidNumber", "givenName", "sn", "description", "ou", "audio", "mobile", "l"],
+                vec!["uidNumber", "givenName", "sn", "description", "ou", "gecos", "audio", "mobile", "l"],
             ).await.unwrap().success().unwrap();
 
             let mut students = Vec::new();
@@ -68,6 +68,7 @@ pub async fn handle_login(_login_user: LoginUser) -> Result<impl warp::Reply, wa
                         school_class: "".to_string(),
                         printed_in: "".to_string(),
                         valid_to: "".to_string(),
+                        image: "".to_string(),
                     }
                 }
                 Some(s) => {

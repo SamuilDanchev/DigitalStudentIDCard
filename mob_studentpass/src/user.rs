@@ -10,6 +10,7 @@ pub struct Student {
     pub school_class: String,
     pub printed_in: String,
     pub valid_to: String,
+    pub image: String,
 }
 
 impl Student {
@@ -22,6 +23,7 @@ impl Student {
             school_class: entry.attrs.get("ou").unwrap()[0].to_string(),
             printed_in: entry.attrs.get("mobile").unwrap()[0].to_string(),
             valid_to: entry.attrs.get("l").unwrap()[0].to_string(),
+            image: entry.attrs.get("gecos").unwrap()[0].to_string(),
         }
     }
 }
