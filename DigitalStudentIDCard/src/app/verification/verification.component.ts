@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VerifyService } from '../student-card/verify.service';
+import { VerifyService } from './verify.service';
 
 @Component({
   selector: 'app-verification',
@@ -14,8 +14,12 @@ export class VerificationComponent implements OnInit {
 
   constructor(private verifyService: VerifyService) {
     this.verifyService.verify().subscribe(res => {
-      console.log(res)
-    })
+      this.msg += res.firstname + ' ' + res.lastname + ' ist verifiziert!'
+    }, error => {
+      this.msg += ' ist nicht verifiziert!'
+    }
+
+    )
   }
 
   ngOnInit(): void {

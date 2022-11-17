@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GlobVar } from '../globals';
+import { VerifyRes } from './verifyRes';
 
 @Injectable({ providedIn: 'root' })
 export class VerifyService {
@@ -16,6 +17,11 @@ export class VerifyService {
         this.token = params['token'];
       })
 
-    return this.http.get(GlobVar.VERIFY_URL + '/authorization?token=' + this.token , {})
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `${this.token}`,
+      });
+
+    return this.http.get<VerifyRes>(GlobVar.VERIFY_URL , {headers:  headers})
   }
 }

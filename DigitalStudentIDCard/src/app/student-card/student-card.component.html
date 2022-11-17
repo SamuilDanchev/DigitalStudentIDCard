@@ -8,18 +8,18 @@
         <mat-card-content>
           <img
             mat-card-image
-            src="https://angular.io/assets/images/logos/angularjs/AngularJS-Shield.svg"
+            [src]="model.image"
             alt="Angular Logo"
           />
           <div class="student-info">
             <mat-form-field appearance="legacy">
               <mat-label>Vorname, Nachname</mat-label>
-              <input matInput [value]="model.firstname +',' +model.lastname " readonly />
+              <input matInput [value]="model.firstname +' ' +model.lastname " readonly />
             </mat-form-field>
 
             <mat-form-field appearance="legacy">
               <mat-label>Geburtsdatum</mat-label>
-              <input matInput [value]="model.birth_date | date" readonly />
+              <input matInput [value]="model.birthday | date" readonly />
             </mat-form-field>
 
             <mat-form-field appearance="legacy">

@@ -39,15 +39,19 @@ export class StudentCardComponent implements OnInit {
   qrData = '';
 
   constructor(private studentService: StudentService, private router: Router) {
-    this.model = studentService.getStudentData();
-    this.qrData = this.router.url + '/verification?token=' + this.studentService.getToken();
+    this.model = this.studentService.getStudentData();
+    this.qrData = 'http://localhost:4200/' + '/verification?token=' + this.studentService.getToken(); // gibt /student zurück
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
+
 
   flip: string = 'inactive';
 
   toggleFlip() {
     this.flip = this.flip == 'inactive' ? 'active' : 'inactive';
+    console.log(this.qrData)
+    console.log(this.router.url)
   }
 }
