@@ -2,7 +2,6 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Student } from '../student-card/student';
 import { StudentService } from '../student-card/student.service';
 import { User } from './user';
 
@@ -34,7 +33,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login() {
+  login(): boolean {
     const user: User =
       {
         email: this.form.get('username')?.value,
@@ -42,5 +41,6 @@ export class LoginComponent implements OnInit {
       }
 
     this.studentService.login(user);
+    return true;
   }
 }
