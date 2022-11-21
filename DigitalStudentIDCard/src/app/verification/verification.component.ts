@@ -8,13 +8,15 @@ import { VerifyService } from './verify.service';
 })
 export class VerificationComponent implements OnInit {
 
-  msg = 'Der Schüler '
+  msg = 'Der Schüler ';
+  verifiziert = false;
 
   student = ''
 
   constructor(private verifyService: VerifyService) {
     this.verifyService.verify().subscribe(res => {
       this.msg += res.firstname + ' ' + res.lastname + ' ist verifiziert!'
+      this.verifiziert = true;
     }, error => {
       this.msg += ' ist nicht verifiziert!'
     }

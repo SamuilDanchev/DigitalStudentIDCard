@@ -1,8 +1,26 @@
-<mat-card>
-    <mat-card-header>
-      <div mat-card-avatar></div>
-    </mat-card-header>
-    <mat-card-content>
-        <p>{{msg}}</p>
-    </mat-card-content>
-  </mat-card>
+<ng-template [ngIf]="verifiziert">
+  <div class="card-wrapper">
+    <mat-card>
+        <mat-card-header>
+          <mat-icon mat-card-avatar>check</mat-icon>
+          Verifizierung
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{ msg }}</p>
+        </mat-card-content>
+      </mat-card>
+  </div>
+</ng-template>
+<ng-template [ngIf]="!verifiziert">
+  <div class="card-wrapper">
+    <mat-card>
+        <mat-card-header>
+          <mat-icon mat-card-avatar>close</mat-icon>
+          Verifizierung
+        </mat-card-header>
+        <mat-card-content>
+            <br><p>{{ msg }}</p>
+        </mat-card-content>
+      </mat-card>
+  </div>
+</ng-template>

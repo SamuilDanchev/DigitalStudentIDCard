@@ -12,7 +12,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatIconModule } from '@angular/material/icon';
 
 import { StudentCardComponent } from './student-card/student-card.component';
 import { QRCodeModule } from 'angularx-qrcode';
@@ -31,7 +32,8 @@ import { VerificationComponent } from './verification/verification.component';
     MatProgressBarModule,
     MatDividerModule,
     QRCodeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

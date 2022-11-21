@@ -1,0 +1,7 @@
+.card-wrapper {
+    width: 50%;
+    margin: auto;
+    margin-top: 20%;
+    max-width: 550px;
+    perspective: 800px;
+  }
