@@ -5,6 +5,7 @@ import { Student } from './student';
 import { GlobVar } from '../globals';
 import { LoginRes } from '../login/logingRes';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class StudentService {
@@ -25,13 +26,14 @@ export class StudentService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(user: User) {
+  login(user: User): Observable<LoginRes>{
     this.http.post<LoginRes>(GlobVar.LOGIN_URL, user).subscribe(res => {
       this.userData = res.student;
       this.token = res.token;
       this.result = true;
     });
     this.result = true;
+    return new Observable<LoginRes>();
   }
 
   getStudentData() {

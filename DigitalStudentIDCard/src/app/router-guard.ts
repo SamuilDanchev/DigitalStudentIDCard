@@ -1,7 +1,5 @@
 import { Injectable } from "@angular/core";
 import { CanActivate, Router } from "@angular/router";
-import { LoginComponent } from "./login/login.component";
-import { User } from "./login/user";
 import { StudentService } from "./student-card/student.service";
 
 @Injectable({

@@ -1,14 +1,22 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { VerificationComponent } from './verification.component';
 
-describe('VerificationComponent', () => {
+describe('StudentCardComponent', () => {
   let component: VerificationComponent;
   let fixture: ComponentFixture<VerificationComponent>;
+  const fakeActivatedRoute = {
+    snapshot: { data: {} }
+  } as ActivatedRoute;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VerificationComponent ]
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      declarations: [ VerificationComponent ],
+      providers: [ {provide: ActivatedRoute, useValue: fakeActivatedRoute} ]
     })
     .compileComponents();
   });
