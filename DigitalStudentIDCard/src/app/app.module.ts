@@ -18,7 +18,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { StudentCardComponent } from './student-card/student-card.component';
 import { QRCodeModule } from 'angularx-qrcode';
 import { VerificationComponent } from './verification/verification.component';
-import { CanActivateRoute } from './router-guard';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, StudentCardComponent, VerificationComponent],
@@ -36,7 +35,7 @@ import { CanActivateRoute } from './router-guard';
     HttpClientModule,
     MatIconModule
   ],
-  providers: [CanActivateRoute, LoginComponent],
+  providers: [LoginComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
