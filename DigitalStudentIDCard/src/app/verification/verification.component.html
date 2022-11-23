@@ -14,9 +14,11 @@
 <ng-template [ngIf]="!verifiziert">
   <div class="card-wrapper">
     <mat-card>
-        <mat-card-header>
-          <mat-icon mat-card-avatar>close</mat-icon>
-          Verifizierung
+        <mat-card-header class="mat-card-header">
+          <mat-icon mat-card-avatar>warning</mat-icon>
+          <div class="div">
+            Verifizierung
+          </div>
         </mat-card-header>
         <mat-card-content>
             <br><p>{{ msg }}</p>
