@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 @Injectable({ providedIn: 'root' })
 export class StudentService {
 
+  result: boolean = false;
+
   private userData: Student = {
     uid: 1,
     firstname: 'John',
@@ -21,19 +23,15 @@ export class StudentService {
   } ;
    private token = 'token123';
 
-  constructor(private http: HttpClient, private router: Router) {
-    this.login(
-      {
-        email: 'test',
-        password: 'test',
-      })
-  }
+  constructor(private http: HttpClient, private router: Router) {}
 
   login(user: User) {
     this.http.post<LoginRes>(GlobVar.LOGIN_URL, user).subscribe(res => {
       this.userData = res.student;
       this.token = res.token;
+      this.result = true;
     });
+    this.result = true;
   }
 
   getStudentData() {

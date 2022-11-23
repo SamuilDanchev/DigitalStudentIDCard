@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  login(): boolean {
+  login() {
     const user: User =
       {
         email: this.form.get('username')?.value,
@@ -41,6 +41,6 @@ export class LoginComponent implements OnInit {
       }
 
     this.studentService.login(user);
-    return true;
+
   }
 }
