@@ -26,3 +26,15 @@ mat-card-content {
   display: flex;
   justify-content: flex-end;
 }
+
+@media screen and (max-width: 300px) {
+  form{
+    width: 60%;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    min-width: 0;
+  }
+
+}

@@ -22,7 +22,6 @@ export class StudentService {
    private token = 'token123';
 
   constructor(private http: HttpClient, private router: Router) {
-    // Lars fragen, sollte nicht so laufen
     this.login(
       {
         email: 'test',
@@ -32,10 +31,8 @@ export class StudentService {
 
   login(user: User) {
     this.http.post<LoginRes>(GlobVar.LOGIN_URL, user).subscribe(res => {
-      console.log(res)
       this.userData = res.student;
       this.token = res.token;
-      console.log(this.userData)
     });
   }
 

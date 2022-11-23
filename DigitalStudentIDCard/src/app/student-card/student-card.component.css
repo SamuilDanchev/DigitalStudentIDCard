@@ -11,7 +11,7 @@
 }
 
 .mat-card-image {
-  margin: 10px;
+  margin: 50px;
   max-width: 25%;
 }
 
@@ -32,6 +32,16 @@
   .mat-card-content {
     flex-direction: column;
     align-items: center;
+  }
+
+  .mat-card-image {
+    margin: 10px;
+    min-width: 80%;
+  }
+
+  .qrcode > canvas {
+    width: 100px !important;
+    height: 100px !important;
   }
 }
 
