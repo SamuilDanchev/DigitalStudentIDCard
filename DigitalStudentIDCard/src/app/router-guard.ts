@@ -1,20 +1,21 @@
 import { Injectable } from "@angular/core";
-import { CanActivate } from "@angular/router";
+import { CanActivate, Router } from "@angular/router";
 import { User } from '../app/login/user';
 import { LoginComponent } from "./login/login.component";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CanActivateRoute implements CanActivate {
-
-    user!: User;
-
-    constructor(private login: LoginComponent) {}
+    
+    constructor(private login: LoginComponent, private router: Router) {}
 
     canActivate() {
-      if (this.login.login() === true) {
+      if (!this.login.login() === true) {
         return true;
       } else {
         window.alert("Keine Zugangsberechtigung");
+        this.router.navigateByUrl('/login');
         return false;
       }
     }
