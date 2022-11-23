@@ -26,14 +26,13 @@ export class StudentService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  login(user: User): Observable<LoginRes>{
+  login(user: User) {
     this.http.post<LoginRes>(GlobVar.LOGIN_URL, user).subscribe(res => {
       this.userData = res.student;
       this.token = res.token;
       this.result = true;
     });
     this.result = true;
-    return new Observable<LoginRes>();
   }
 
   getStudentData() {
