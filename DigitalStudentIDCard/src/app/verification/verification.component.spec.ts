@@ -5,20 +5,19 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { VerificationComponent } from './verification.component';
 
-describe('StudentCardComponent', () => {
+describe('VerificationComponent', () => {
   let component: VerificationComponent;
   let fixture: ComponentFixture<VerificationComponent>;
   const fakeActivatedRoute = {
-    snapshot: { data: {} }
+    snapshot: { data: {} },
   } as ActivatedRoute;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule],
-      declarations: [ VerificationComponent ],
-      providers: [ {provide: ActivatedRoute, useValue: fakeActivatedRoute} ]
-    })
-    .compileComponents();
+      declarations: [VerificationComponent],
+      providers: [{ provide: ActivatedRoute, useValue: fakeActivatedRoute }],
+    }).compileComponents();
   });
 
   beforeEach(() => {
